@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenerbitsTable extends Migration
+class CreatePerpusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreatePenerbitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('penerbits', function (Blueprint $table) {
+        Schema::create('perpuses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama')->nullable();
+            $table->string('judul')->unique();
+            $table->integer('jumlah_halaman')->default(50);
+            $table->string('penerbit')->nullable();
+            $table->text('synopsis')->nullable();
+           
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreatePenerbitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penerbits');
+        Schema::dropIfExists('perpuses');
     }
 }

@@ -18,7 +18,7 @@ class CreateBukusTable extends Migration
             $table->string('judul')->unique();
             $table->integer('jumlah_halaman')->default(50);
             $table->string('penerbit')->nullable();
-            $table->string('synopsis')->nullable();
+            $table->text('synopsis')->nullable();
             $table->string('status')->default(1);
             $table->timestamps();
         });

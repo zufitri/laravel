@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PenjualSeeder::class);
         $this->call(PembeliSeeder::class);
+        $this->call(PerpusSeeder::class);
+       
     }
 }

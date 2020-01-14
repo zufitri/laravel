@@ -46,6 +46,10 @@ Route::get('variable', function () {
 Route::get('nilai/{nilai?}', function ($nilai= 'kosong') {
     return $nilai;
 });
+//Route::get('soal/{?}/{?}', function ($a=null,$b=null) {
+  //  return $a.'&'.$b;
+//});
+
 
 
 
@@ -73,3 +77,16 @@ elseif ($nilai<=20 && $nilai >=10 ){
 
     return '<br>'.'nama '.$nama.'<br>'.'nilai'.$nilai;
 });
+route::get('contoh','ContohController@latihan4');
+route::get('pesan2/{makanan?}/{minuman?}/{harganya?}','ContohController@soal');
+
+
+
+
+route::get('buku','BukuController@index');
+route::get('create','BukuController@create');
+route::get('get','BukuController@show');
+route::get('delete','BukuController@delete');
+route::get('update','BukuController@update');
+
+//route::get('buku','BukuController@create');
