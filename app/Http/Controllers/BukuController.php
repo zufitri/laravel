@@ -11,25 +11,35 @@ class BukuController extends Controller
     {
          $buku= Buku::all();
 
-         return $buku;
+         return view('buku.index',compact('buku'));
     }   
     public function show($id)
     {
         $buku= Buku::find($id);
-        return $buku;
+        return view('buku.show',compact('buku'));
     }
     public function hitungBuku()
     {
         $buku=Buku::count();
         return $buku;
     }
-    public function create(){
+    public function create($a){
         $buku= new Buku;
-        $buku->judul= 'aku kamu dan dia ';
+        $buku->judul= $a;
         $buku->jumlah_halaman=50;
         $buku->penerbit='grade perpustaakan';
         $buku->synopsis='ini adalah.......';//untuk kata yang panjang
         $buku->status=1;
+        $buku->save();
+        return $buku;
+    }
+    public function update($id,$b){
+        $buku=Buku::find($id);
+        $buku->judul= $b;
+        $buku->jumlah_halaman=50;
+        $buku->penerbit='grade perpustaakan';
+        $buku->synopsis='ini adalah.......';//untuk kata yang panjang
+        $buku->status=false;
         $buku->save();
         return $buku;
     }

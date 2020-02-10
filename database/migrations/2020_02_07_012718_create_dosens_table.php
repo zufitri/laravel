@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBukusTable extends Migration
+class CreateDosensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateBukusTable extends Migration
      */
     public function up()
     {
-        Schema::create('bukus', function (Blueprint $table) {
+        Schema::create('dosens', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('judul')->uniqe();
-            $table->integer('jumlah_halaman')->default(50);
-            $table->string('penerbit')->nullable();
-            $table->text('synopsis')->nullable();
-            $table->string('status')->default(1);
+            $table->string('nama');
+            $table->string('nipd');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateBukusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bukus');
+        Schema::dropIfExists('dosens');
     }
 }
